@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OnlineEducationPortal.Models.RegisterData>
+
+@{
+    ViewBag.Title = "TutorRecord";
+}
+
+<h2>Tutor Record</h2>
+
+<p>
+    @Html.ActionLink("Register New Tutor ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qualification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialist)
+        </th>
+        <th>Edit </th>
+        <th>Delete </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialist)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<br/>
+
+<a href="@Url.Action("Index","Home")"> Back to Main </a>
+

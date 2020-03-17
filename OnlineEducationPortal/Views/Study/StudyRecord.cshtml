@@ -1,0 +1,56 @@
+﻿@model IEnumerable<OnlineEducationPortal.Models.StudyData>
+
+@{
+    ViewBag.Title = "StudyRecord";
+}
+
+<h2>StudyRecord</h2>
+
+<p>
+    @Html.ActionLink("Add New Study Data ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TutorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th>Edit </th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TutorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+            </td>
+            <td>
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<br />
+
+<a href="@Url.Action("Correct","Home")"> Back to Main </a>
+
